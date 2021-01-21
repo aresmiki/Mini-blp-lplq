@@ -4,7 +4,7 @@ function [optW,rec,funv,Info]=min_blp_lplq(x,np,option,p,q)
     %  code by Liu He (aremiki@163.com), July 2020
     %  Used in my PhD research at the University of SouthWest Jiaotong University.
     %
-    %  This research work has been submitted to the Journal of Signal Processing.
+    %  This research work has been published on the Journal of Signal Processing.
     %
     % Inputs:
     %    x: 
@@ -50,28 +50,28 @@ function [optW,rec,funv,Info]=min_blp_lplq(x,np,option,p,q)
 if nargin <= 3
     p=1;q=2;
 end
-% x-ÐÅºÅ
-%% ¹¹ÔìHankel ¾ØÕó
+% x-ä¿¡å·
+%% æž„é€ Hankel çŸ©é˜µ
 N=length(x);
 data=[];
 for i=1:floor(N-np+1)
     data(i,:)=x(i:(i+np-1));
 end
 NP=max(size(data));
-%% ³õÊ¼»¯È¨ÖØ
+%% åˆå§‹åŒ–æƒé‡
  % Assume initial filter as a delayed impulse
-optW = zeros(size(data, 2),1); %Ê¹ÓÃ¸ß·å¶ÈµÄµ¥µãº¯Êý
+optW = zeros(size(data, 2),1); %ä½¿ç”¨é«˜å³°åº¦çš„å•ç‚¹å‡½æ•°
 optW(2)=1;
 optW=optW./norm(optW);
 %%
 if option==0
-Psi=fft(eye(NP,NP));    %  ¸µÀïÒ¶Õý±ä»»¾ØÕó
-[HM]=get_hilbfir_M(NP);  % Hilbert±ä»»¾ØÕó
-% ÕæÊµ°üÂçËã·¨
+Psi=fft(eye(NP,NP));    %  å‚…é‡Œå¶æ­£å˜æ¢çŸ©é˜µ
+[HM]=get_hilbfir_M(NP);  % Hilbertå˜æ¢çŸ©é˜µ
+% çœŸå®žåŒ…ç»œç®—æ³•
 [optW,funv,~,Info]  = minFunc(@L1_L2obj_grad,optW(:), ... 
                    struct('MaxIter', 40,'Display','off','TolX',1e-4),data,Psi,HM,p,q);
 else
-% ÊýÖµµÄ°üÂçËã·¨
+% æ•°å€¼çš„åŒ…ç»œç®—æ³•
 [optW,funv,~,Info]  = minFunc(@L1_L2obj_grad_num,optW(:), ...
    struct('MaxIter', 400,'numDiff',1,'Display','off','TolX',1e-4),data,p,q);
 end
