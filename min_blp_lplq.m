@@ -5,6 +5,9 @@ function [optW,rec,funv,Info]=min_blp_lplq(x,np,option,p,q)
     %  Used in my PhD research at the University of SouthWest Jiaotong University.
     %
     %  This research work has been published on the Journal of Signal Processing.
+    %  Liu He，Dong Wang，Cai Yi et.al,Extracting cyclo-stationarity of repetitive transients  
+    %  from envelope spectrum based on prior-unknown blind deconvolution technique，Signal Processing,
+    %  https://doi.org/10.1016/j.sigpro.2021.107997
     %
     % Inputs:
     %    x: 
