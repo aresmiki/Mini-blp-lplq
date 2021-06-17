@@ -1,5 +1,6 @@
 # Mini_blp_lplq
 The Matlab code of blind deconvolution based on criterion defined by envelope spectrum
+
 [1] He, Liu, et al. “Extracting Cyclo-Stationarity of Repetitive Transients from Envelope Spectrum Based on Prior-Unknown Blind Deconvolution Technique.” Signal Processing, Elsevier BV, Jan. 2021, p. 107997, doi:10.1016/j.sigpro.2021.107997.
 
 This research work has been published on the Journal of Signal Processing.<Liu He，Dong Wang，Cai Yi et.al, Extracting cyclo-stationarity of repetitive transients from envelope spectrum based on prior-unknown blind deconvolution technique, Signal Processing. doi:10.1016/j.sigpro.2021.107997> If this code is used in research work, you should cite.
